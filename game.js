@@ -2835,13 +2835,16 @@
 })();
 
 new Runner(".runner-wrapper");
+
 !function() {
 	var isArcade = location.hash == "#arcade";
 	var a = document.getElementsByClassName('runner-switch')[0];
 	a.innerHTML = 'Switch to ' + (isArcade ? 'normal' : 'arcade') + ' mode.';
-	a.href = isArcade ? '' : '#arcade';
+	a.href = isArcade ? '#normal' : '#arcade';
 	a.onclick = function() {
-		location.reload();
+		setTimeout(function() {
+			location.reload();
+		}, 50);
 	};
 	a.style.display = 'initial';
 }();
